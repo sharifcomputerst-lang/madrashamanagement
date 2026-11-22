@@ -24,7 +24,7 @@ import { getToken, setToken } from './api.js';
 export default function App() {
   const [user, setUser] = useState(() => {
     try {
-      return getToken() ? JSON.parse(atob(getToken().split('.')[1])) : null;
+      return getToken() ? JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(getToken()), (c) => c.charCodeAt(0)))) : null;
     } catch {
       return null;
     }
@@ -33,12 +33,7 @@ export default function App() {
 
   const handleLogin = (token, u) => {
     setToken(token);
-    try {
-      const payload = JSON.parse(atob(token.split('.')[1]));
-      setUser({ name: payload.name, role: payload.role });
-    } catch {
-      setUser(u);
-    }
+    setUser(u ? { name: u.name, role: u.role } : null);
     navigate('/');
   };
 

@@ -55,6 +55,8 @@ export default function Login({ onLogin }) {
         </form>
         <p className="mt-4 rounded-lg bg-slate-50 px-3 py-2 text-center text-xs text-slate-500">
           ডেমো লগইন — ইউজারনেম: <b>admin</b> · পাসওয়ার্ড: <b>admin123</b>
+          <br />
+          <span className="text-[11px]">🔒 সম্পূর্ণ অফলাইন — সব ডেটা এই ডিভাইসের ব্রাউজারেই সংরক্ষিত হবে</span>
         </p>
       </div>
     </div>

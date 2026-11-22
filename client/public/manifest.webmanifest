@@ -1,0 +1,19 @@
+{
+  "name": "মাদরাসা ম্যানেজমেন্ট সিস্টেম",
+  "short_name": "মাদরাসা",
+  "description": "সম্পূর্ণ অফলাইন মাদরাসা ম্যানেজমেন্ট সিস্টেম",
+  "lang": "bn",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#065f46",
+  "theme_color": "#047857",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
