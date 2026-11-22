@@ -1,13 +1,13 @@
 {
   "name": "madrasa-management",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
-  "description": "মাদরাসা ম্যানেজমেন্ট সিস্টেম",
+  "description": "সম্পূর্ণ অফলাইন মাদরাসা ম্যানেজমেন্ট সিস্টেম",
   "scripts": {
-    "setup": "npm run setup --prefix server && npm run setup --prefix client",
-    "server": "npm start --prefix server",
-    "client": "npm run dev --prefix client",
+    "setup": "npm install --prefix client",
+    "dev": "npm run dev --prefix client",
     "build": "npm run build --prefix client",
-    "start": "npm start --prefix server"
+    "preview": "npm run preview --prefix client",
+    "test": "npm test --prefix client"
   }
 }
