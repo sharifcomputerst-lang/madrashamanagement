@@ -2,7 +2,7 @@ name: Build Android APK
 
 on:
   push:
-    branches: [ main ] # আপনার মেইন ব্রাঞ্চের নাম (main বা master)
+    branches: [ main ]
 
 jobs:
   build:
