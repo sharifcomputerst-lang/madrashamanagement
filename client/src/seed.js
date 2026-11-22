@@ -59,7 +59,7 @@ export async function seedDemoData(db) {
     const rows = [];
     for (const sid of classStudents) {
       for (const sub of SUBJ) {
-        rows.push({ exam_id: examId, student_id: sid, subject: sub.name, marks: Math.round(45 + Math.random() * 53) });
+        rows.push({ exam_id: examId, student_id: sid, subject: sub.name, marks: 45 + ((sid * 7 + sub.name.length) % 54) });
       }
     }
     await db.marks.bulkAdd(rows);
@@ -70,11 +70,14 @@ export async function seedDemoData(db) {
     const admissionMonth = '2025-01';
     const monthlyFee = 500 + (i % 3) * 100;
     let m = admissionMonth;
+    let k = 0;
     while (m <= cur) {
-      if (Math.random() > 0.25) {
-        feeRows.push({ student_id: studentIds[i], month: m, amount: monthlyFee, paid_date: m + '-08', method: Math.random() > 0.8 ? 'bkash' : 'cash', note: '' });
+      const skip = m === cur ? i % 2 !== 0 : (k + i) % 4 === 0;
+      if (!skip) {
+        feeRows.push({ student_id: studentIds[i], month: m, amount: monthlyFee, paid_date: m + '-08', method: (k + i) % 9 === 0 ? 'bkash' : 'cash', note: '' });
       }
       m = nextMonth(m);
+      k++;
     }
   }
   await db.fees.bulkAdd(feeRows);
